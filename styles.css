@@ -36,6 +36,11 @@ img {
   display: block;
 }
 
+.placeholder-img {
+  background: linear-gradient(135deg, #eef2f6 0%, #e5e7eb 50%, #eef2f6 100%);
+  border: 1px solid var(--border);
+}
+
 /* Layout helpers */
 
 .container {
