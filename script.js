@@ -147,7 +147,8 @@ const dataSources = {
 };
 
 const dataBase = (() => {
-  const baseUrl = new URL(window.location.href);
+  const script = document.currentScript || document.querySelector('script[src]');
+  const baseUrl = script ? new URL(script.src) : new URL(window.location.href);
   baseUrl.pathname = baseUrl.pathname.replace(/[^/]*$/, '');
   return baseUrl;
 })();
