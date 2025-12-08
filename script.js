@@ -186,8 +186,11 @@ const fetchData = (type) => {
 };
 
 const buildMetaText = (entry, type) => {
-  const values = type === 'insight' ? [entry.date, entry.topic] : [entry.location, entry.year];
-  return values.filter(Boolean).join(' · ');
+  if (type === 'insight') {
+    return [entry.date, entry.topic].filter(Boolean).join(' · ');
+  }
+
+  return '';
 };
 
 const createTagList = (tags = []) => {
@@ -259,7 +262,8 @@ const renderProjectList = async () => {
     article.id = entry.slug;
 
     const header = createEl('div', 'entry-header');
-    header.append(createEl('p', 'project-meta', buildMetaText(entry, 'project')));
+    const metaText = buildMetaText(entry, 'project');
+    if (metaText) header.append(createEl('p', 'project-meta', metaText));
     header.append(createEl('h2', null, entry.title));
     article.append(header);
 
@@ -428,23 +432,50 @@ const renderDetailPage = async () => {
     sidebar.classList.remove('has-content');
   }
   if (titleEl) titleEl.textContent = entry.title;
-  if (metaEl) metaEl.textContent = buildMetaText(entry, detailType);
+  if (metaEl) {
+    const metaText = buildMetaText(entry, detailType);
+    metaEl.textContent = metaText;
+    metaEl.style.display = metaText ? '' : 'none';
+  }
   if (leadEl) leadEl.textContent = entry.lead || entry.summary || '';
   if (typeEl) typeEl.textContent = detailType === 'insight' ? 'Insight' : 'Project reference';
   if (heroImg) heroImg.alt = entry.heroAlt || entry.title || '';
 
   bodyContainer.innerHTML = '';
 
-  if (detailType === 'project') {
-    const facts = renderKeyFacts(entry);
-    if (facts && sidebar && layout) {
-      sidebar.appendChild(facts);
+  const keyFacts = detailType === 'project' ? renderKeyFacts(entry) : null;
+  const narrowMediaQuery = window.matchMedia('(max-width: 1024px)');
+
+  renderSections(bodyContainer, entry.sections);
+
+  const repositionKeyFacts = () => {
+    if (!keyFacts) return;
+
+    const isNarrow = narrowMediaQuery.matches;
+    const firstHeading = bodyContainer.querySelector('h3');
+
+    if (keyFacts.parentElement) keyFacts.parentElement.removeChild(keyFacts);
+
+    if (isNarrow) {
+      if (sidebar) sidebar.classList.remove('has-content');
+      if (layout) layout.classList.remove('has-sidebar');
+      if (firstHeading) {
+        bodyContainer.insertBefore(keyFacts, firstHeading);
+      } else {
+        bodyContainer.insertBefore(keyFacts, bodyContainer.firstChild);
+      }
+    } else if (sidebar && layout) {
+      sidebar.appendChild(keyFacts);
       sidebar.classList.add('has-content');
       layout.classList.add('has-sidebar');
     }
+  };
+
+  if (keyFacts) {
+    repositionKeyFacts();
+    narrowMediaQuery.addEventListener('change', repositionKeyFacts);
   }
 
-  renderSections(bodyContainer, entry.sections);
   observeAnimatedElements(bodyContainer);
 
   renderRelatedLinks(detailType, entry);
