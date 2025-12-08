@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Data lineage as a competitive edge in market modelling | Africa Power Advisory</title>
+  <title>Insight | Africa Power Advisory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Full insight: data lineage as a competitive edge in market modelling." />
+  <meta name="description" content="Insight detail page" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon-modern.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-entry-type="insight" data-entry-slug="insight-data-lineage">
   <header class="site-header" data-animate>
     <div class="container header-inner">
       <a href="index.html#top" class="brand" aria-label="Africa Power Advisory home">
@@ -34,58 +34,24 @@
 
   <main>
     <section class="detail-visual" data-animate>
-      <img data-placeholder="1600x420" alt="Team reviewing power market models" />
+      <img id="detail-hero" data-placeholder="1600x420" alt="" />
     </section>
 
     <section class="detail-shell" data-animate>
       <div class="container detail-top">
         <a class="back-link" href="insights.html">Back to insights</a>
-        <p class="eyebrow">Insight</p>
-        <h1 class="detail-title">Data lineage as a competitive edge in market modelling</h1>
-        <p class="detail-meta">Jul 2025 · Data</p>
-        <p class="detail-lead">Documentation, testing, and reproducibility that withstand regulator review and investor due diligence.</p>
+        <p class="eyebrow" id="detail-type">Insight</p>
+        <h1 class="detail-title" id="detail-title"></h1>
+        <p class="detail-meta" id="detail-meta"></p>
+        <p class="detail-lead" id="detail-lead"></p>
       </div>
 
       <div class="container detail-layout full-width">
-        <div class="detail-body">
-          <h3>Build a single source of truth</h3>
-          <p>
-            Every scenario, dataset, and tweak needs a changelog. Simple markdown notes and versioned data folders make it easy
-            to explain why a conclusion holds even when assumptions move. When multiple regulators review the same study, they
-            can see which assumptions are harmonised and which are bespoke.
-          </p>
-
-          <h3>Test what matters</h3>
-          <p>
-            Automatic checks on load data, renewable traces, and dispatch outputs catch the errors that derail credibility. The
-            tests do not need to be complex; they simply need to run every time a workbook or script changes. Think of them as
-            pre-flight checks for analytics, catching silent unit errors before they show up in board slides.
-          </p>
-
-          <h3>Leave an audit trail</h3>
-          <p>
-            Annotate charts and model outputs with sources and timestamps so regulators and lenders can retrace each decision.
-            When cross-border flows or tariffs are at stake, that trail removes hours of negotiation friction and builds a
-            reusable library of defensible visuals.
-          </p>
-
-          <h3>Share the playbook</h3>
-          <p>
-            Publish a short README with file locations, contact points, and rerun instructions. Teams that onboard quickly win
-            more work because clients see less risk in handing over sensitive data, and new analysts spend hours instead of days
-            finding the right scripts.
-          </p>
+        <div class="detail-body" id="detail-body">
+          <p class="loading-copy">Loading insight…</p>
         </div>
 
-        <div class="related-cards">
-          <a class="related-card" href="project-grid-loss.html">
-            <div class="related-card-content">
-              <span>Related project reference</span>
-              <strong>Grid-loss reduction and tariff realignment</strong>
-            </div>
-            <span class="related-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
+        <div class="related-cards" id="related-links"></div>
       </div>
     </section>
   </main>

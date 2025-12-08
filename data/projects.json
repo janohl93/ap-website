@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "project-grid-loss",
+    "title": "Grid-loss reduction and tariff realignment roadmap",
+    "location": "Tanzania",
+    "year": "2023",
+    "heroAlt": "Distribution network technicians",
+    "summary": "Feeder-level loss forensics, revenue protection pilots, and an affordability-tested glidepath that ties tariff moves to visible service gains.",
+    "lead": "Loss-mapping, revenue protection pilots, and an affordability-tested glidepath that links tariff moves to visible service improvements for households and industry.",
+    "tags": ["Distribution", "Tariff design", "Data forensics"],
+    "sections": [
+      {
+        "heading": "Narrative",
+        "body": [
+          "We stitched together SCADA pulls, billing data, and feeder surveys to pinpoint where energy was disappearing. That mapping revealed a handful of high-loss clusters that were dragging down collections, so investment focused on replacing weak spans, tightening protection schemes, and proving to customers that reliability was improving.",
+          "Parallel tariff modelling introduced a glidepath that paired loss cuts with gradual revenue recovery. Each step was stress-tested against household affordability, social-tariff coverage, and lender covenants so the regulator could back reforms without overloading customers already facing high inflation."
+        ]
+      },
+      {
+        "heading": "Approach",
+        "body": [
+          "A joint taskforce co-designed revenue protection pilots, combined SCADA data with field inspections, and published a transparent dashboard for the board and regulator. The mix of field crews and analysts built confidence in the loss estimates, prioritised feeder-by-feeder investments, and set milestones lenders could monitor alongside the utility."
+        ]
+      }
+    ],
+    "relatedInsights": ["insight-data-lineage"]
+  },
+  {
+    "slug": "project-hybrid-tender",
+    "title": "Hybrid solar, wind, and storage competitive tender",
+    "location": "Namibia",
+    "year": "2024",
+    "heroAlt": "Solar panels with wind turbines",
+    "summary": "Bankable PPA and bid evaluation design paired with firmness modelling, frequency response obligations, and cashflows stress-tested with lenders and operators.",
+    "lead": "Bankable PPA and bid evaluation design paired with firmness modelling, frequency response obligations, and stress-tested cashflows tailored to Namibia’s grid conditions.",
+    "tags": ["Hybrid procurement", "Storage", "PPA design"],
+    "sections": [
+      {
+        "heading": "Narrative",
+        "body": [
+          "We reworked the procurement documents so reliability counted as much as price. Hour-by-hour traces for solar, wind, and storage combinations fed into evaluation scoring, letting the off-taker see how different storage durations and dispatch rules would hold up under weak-grid conditions.",
+          "Tender rules included response obligations for primary and secondary frequency support. That clarity allowed bidders to price grid services explicitly rather than bury obligations inside energy tariffs, and it gave the system operator a clearer view of how hybrid plants would contribute when inertia is low."
+        ]
+      },
+      {
+        "heading": "Approach",
+        "body": [
+          "The team aligned lenders, treasury, and the system operator around a PPA that reflected true operating limits. A bidder workshop walked developers through telemetry requirements, availability testing, and the dispatch hierarchy so that operational data, not negotiation, would decide performance claims after signing."
+        ]
+      }
+    ],
+    "relatedInsights": ["insight-vgf-hybrids"]
+  },
+  {
+    "slug": "project-interconnector",
+    "title": "Operational playbooks for new cross-border flows",
+    "location": "Senegal",
+    "year": "2022",
+    "heroAlt": "Transmission infrastructure across a border",
+    "summary": "Dispatch, protection, and settlement playbooks that clarify accountability as new transfer capacity goes live and cross-border trading scales.",
+    "lead": "Dispatch, protection, and settlement playbooks that clarify accountability as new transfer capacity goes live and regional trade accelerates.",
+    "tags": ["Interconnection", "Grid codes", "Wheeling"],
+    "sections": [
+      {
+        "heading": "Narrative",
+        "body": [
+          "The interconnector linked two operators with different control philosophies. We translated treaty language into plain procedures that dispatchers could apply without legal counsel on the line, covering redispatch priorities, black-start hierarchies, and cross-border protection handoffs.",
+          "Dry-run drills surfaced misalignments between grid codes and operational practice. By resolving them before energisation, the utilities avoided the early disputes that often slow down regional power trading and built trust ahead of the first commercial transfers."
+        ]
+      },
+      {
+        "heading": "Approach",
+        "body": [
+          "Joint operator workshops defined who calls redispatch, who pays for losses, and how outages get reported. Templates for metering disputes and data sharing were added to reduce downtime and keep regulators confident in cross-border transfers, with a simple RACI so each control room knew who owned each decision during disturbances."
+        ]
+      }
+    ],
+    "relatedInsights": ["insight-ancillary-pricing"]
+  },
+  {
+    "slug": "project-central-corridor",
+    "title": "Central corridor grid reinforcement",
+    "location": "Zambia",
+    "year": "2025",
+    "heroAlt": "High voltage pylons through landscape",
+    "summary": "Private-participation roadmap and dispatch analysis aligning utility, investors, and regulator around staged reinforcement and wheeling revenue growth.",
+    "lead": "Private-participation roadmap and dispatch analysis aligning utility, investors, and regulator around staged reinforcement and future wheeling growth.",
+    "tags": ["Transmission", "Dispatch modelling", "Private participation"],
+    "sections": [
+      {
+        "heading": "Narrative",
+        "body": [
+          "Reinforcing the central corridor required blending public and private capital without overburdening tariffs. We traced flow constraints across dry- and wet-year dispatch runs, flagging where transformers and protection schemes would bottleneck new IPP injections. That evidence showed how staged upgrades could unlock regional trade while keeping tariffs predictable.",
+          "The roadmap sequenced investments so reliability improved ahead of demand growth, giving the regulator confidence to approve tariff adjustments linked to measurable service gains. Communities along the corridor now had a visible timeline for when outages would ease and when new load connections could be processed."
+        ]
+      },
+      {
+        "heading": "Approach",
+        "body": [
+          "Investor roundtables tested different availability regimes and termination points. A shared data room with clear dispatch assumptions helped bidders and the utility debate risks with the same evidence base, while the system operator stress-tested evacuation risks under planned maintenance to fine-tune performance incentives."
+        ]
+      }
+    ],
+    "relatedInsights": ["insight-transmission-ppp", "insight-ancillary-pricing"]
+  }
+]
