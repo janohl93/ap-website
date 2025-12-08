@@ -149,8 +149,8 @@ const dataSources = {
 const dataCache = {};
 
 const fetchData = (type) => {
-  if (!dataSources[type]) return Promise.resolve([]);
-  if (dataCache[type]) return Promise.resolve(dataCache[type]);
+  if (!dataSources[type]) return Promise.resolve({ items: [], ok: false });
+  if (dataCache[type]) return Promise.resolve({ items: dataCache[type], ok: true });
 
   const url = new URL(dataSources[type], window.location.href).toString();
 
@@ -163,11 +163,11 @@ const fetchData = (type) => {
     })
     .then((json) => {
       dataCache[type] = json;
-      return json;
+      return { items: json, ok: true };
     })
     .catch((error) => {
       console.error(`Unable to load ${type} data`, error);
-      return [];
+      return { items: [], ok: false };
     });
 };
 
@@ -191,7 +191,13 @@ const renderInsightList = async () => {
   const container = document.getElementById('insight-feed');
   if (!container) return;
 
-  const insights = await fetchData('insights');
+  const { items: insights, ok } = await fetchData('insights');
+
+  if (!ok) {
+    container.innerHTML = '<p class="loading-copy">Unable to load this page right now.</p>';
+    return;
+  }
+
   if (!insights.length) {
     container.innerHTML = '<p class="loading-copy">No insights available right now.</p>';
     return;
@@ -222,7 +228,13 @@ const renderProjectList = async () => {
   const container = document.getElementById('project-list');
   if (!container) return;
 
-  const projects = await fetchData('projects');
+  const { items: projects, ok } = await fetchData('projects');
+
+  if (!ok) {
+    container.innerHTML = '<p class="loading-copy">Unable to load this page right now.</p>';
+    return;
+  }
+
   if (!projects.length) {
     container.innerHTML = '<p class="loading-copy">No project references available right now.</p>';
     return;
@@ -311,7 +323,12 @@ const renderRelatedLinks = async (type, entry) => {
   }
 
   const targetType = type === 'insight' ? 'projects' : 'insights';
-  const targetEntries = await fetchData(targetType);
+  const { items: targetEntries, ok } = await fetchData(targetType);
+
+  if (!ok) {
+    container.innerHTML = '';
+    return;
+  }
 
   container.innerHTML = '';
   relatedSlugs.forEach((slug) => {
@@ -348,11 +365,11 @@ const renderDetailPage = async () => {
   if (!detailType || !slug) return;
 
   const sourceType = detailType === 'insight' ? 'insights' : 'projects';
-  const entries = await fetchData(sourceType);
+  const { items: entries, ok } = await fetchData(sourceType);
   const entry = entries.find((item) => item.slug === slug);
 
   const bodyContainer = document.getElementById('detail-body');
-  if (!entry || !bodyContainer) {
+  if (!bodyContainer || !ok || !entry) {
     if (bodyContainer) {
       bodyContainer.innerHTML = '<p class="loading-copy">Unable to load this page right now.</p>';
     }
