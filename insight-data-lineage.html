@@ -33,38 +33,51 @@
   </header>
 
   <main>
-    <section class="detail-hero" data-animate>
-      <div class="container detail-header">
-        <p class="eyebrow">Insight</p>
-        <p class="detail-meta">Jul 2025 · Data</p>
-        <h1 class="detail-title">Data lineage as a competitive edge in market modelling</h1>
-        <p class="hero-lead narrow">Documentation, testing, and reproducibility as the foundation for credible advisory across regulators.</p>
-      </div>
+    <section class="detail-visual" data-animate>
+      <img data-placeholder="1600x420" alt="Team reviewing power market models" />
     </section>
 
-    <section class="section section-muted" data-animate>
-      <div class="container detail-body">
-        <div class="detail-media">
-          <img data-placeholder="1400x820" alt="Data lineage workflow" />
+    <section class="detail-shell" data-animate>
+      <div class="container detail-top">
+        <a class="back-link" href="insights.html">Back to insights</a>
+        <p class="eyebrow">Insight</p>
+        <h1 class="detail-title">Data lineage as a competitive edge in market modelling</h1>
+        <p class="detail-meta">Jul 2025 · Data</p>
+        <p class="detail-lead">Documentation, testing, and reproducibility that withstand regulator review and investor due diligence.</p>
+      </div>
+
+      <div class="container detail-layout full-width">
+        <div class="detail-body">
+          <h3>Build a single source of truth</h3>
+          <p>
+            Every scenario, dataset, and tweak needs a changelog. Simple markdown notes and versioned data folders make it easy
+            to explain why a conclusion holds even when assumptions move.
+          </p>
+
+          <h3>Test what matters</h3>
+          <p>
+            Automatic checks on load data, renewable traces, and dispatch outputs catch the errors that derail credibility. The
+            tests do not need to be complex; they simply need to run every time a workbook or script changes.
+          </p>
+
+          <h3>Leave an audit trail</h3>
+          <p>
+            Annotate charts and model outputs with sources and timestamps so regulators and lenders can retrace each decision.
+            When cross-border flows or tariffs are at stake, that trail removes hours of negotiation friction.
+          </p>
+
+          <h3>Share the playbook</h3>
+          <p>
+            Publish a short README with file locations, contact points, and rerun instructions. Teams that onboard quickly win
+            more work because clients see less risk in handing over sensitive data.
+          </p>
         </div>
-        <div>
-          <h3>Signals</h3>
-          <p>Transparent data lineage builds trust with regulators and lenders and speeds up stakeholder challenge processes.</p>
-        </div>
-        <div>
-          <h3>What to watch</h3>
-          <p>Versioned assumptions, testable pipelines, and traceable data sources with vintages and QA gates.</p>
-        </div>
-        <div>
-          <h3>Toolkit</h3>
-          <p>Documentation templates, QA checklists, and reproducible pipeline patterns that shorten review cycles.</p>
-        </div>
-        <div>
-          <h3>Related project references</h3>
-          <ul class="related-list">
-            <li><a href="project-grid-loss.html">Grid-loss reduction and tariff realignment roadmap</a></li>
-            <li><a href="project-hybrid-tender.html">Hybrid solar, wind, and storage competitive tender</a></li>
-          </ul>
+
+        <div class="related-cards">
+          <a class="related-card" href="project-grid-loss.html">
+            <span>Related project reference</span>
+            <strong>Grid-loss reduction and tariff realignment</strong>
+          </a>
         </div>
       </div>
     </section>
@@ -72,12 +85,24 @@
 
   <footer class="site-footer" data-animate>
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Africa Power Advisory.</p>
-      <p class="footer-small">AP Advisory is a brand of Multiconsult Norge AS focused on power-market advisory across Africa.</p>
-      <p class="footer-small">Offices: Oslo · Maputo · Lusaka · Dar Es Salaam · Nairobi</p>
+      <div class="footer-top">
+        <p>&copy; <span id="year"></span> Africa Power Advisory.</p>
+        <p class="footer-small">Africa Power Advisory is a specialist practice within Multiconsult Norge AS focused on power-market and grid advisory across the continent.</p>
+      </div>
+      <div class="footer-meta">
+        <p class="footer-small">Postal address: Multiconsult Norge AS, Postboks 265 Skøyen, 0213 Oslo, Norway.</p>
+        <p class="footer-small">Offices: Oslo · Dar Es Salaam · Lusaka · Maputo</p>
+      </div>
+      <p class="footer-disclaimer">Information provided is for general guidance and does not constitute investment advice or a solicitation.</p>
       <div class="footer-links">
-        <a href="mailto:contact@africapoweradvisory.com">contact@africapoweradvisory.com</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:contact@africapoweradvisory.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v11H3z"/><path d="M3 7l9 6 9-6"/></svg>
+          contact@africapoweradvisory.com
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9h3v9H6z"/><circle cx="7.5" cy="6.5" r="1.5"/><path d="M11 9h3v1.8a3 3 0 0 1 5 2.4V18h-3v-4.2a1.3 1.3 0 0 0-2.6 0V18H11z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </div>
   </footer>
