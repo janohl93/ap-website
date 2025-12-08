@@ -13,27 +13,54 @@ if (toggle && nav) {
 }
 
 // Reveal on scroll
-const animated = document.querySelectorAll('[data-animate]');
-if (animated.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
+const animatedSelector = '[data-animate]';
+const animatedObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            animatedObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    )
+  : null;
 
-  animated.forEach((el) => observer.observe(el));
-}
+const observeAnimatedElements = (scope = document) => {
+  if (!animatedObserver) return;
+  scope.querySelectorAll(animatedSelector).forEach((el) => animatedObserver.observe(el));
+};
+
+observeAnimatedElements();
 
 // Year in footer
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
+const setCurrentYear = (scope = document) => {
+  const yearEl = scope.querySelector('#year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+};
+
+// Shared footer loader
+const footerPlaceholder = document.getElementById('footer-placeholder');
+if (footerPlaceholder) {
+  fetch('partials/footer.html')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Footer request failed with status ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((html) => {
+      footerPlaceholder.innerHTML = html;
+      observeAnimatedElements(footerPlaceholder);
+      setCurrentYear(footerPlaceholder);
+    })
+    .catch((error) => console.error('Failed to load footer', error));
+} else {
+  setCurrentYear();
 }
 
 // Placeholder images
