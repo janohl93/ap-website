@@ -750,6 +750,13 @@ img {
     "related";
 }
 
+.detail-layout.has-sidebar {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  grid-template-areas:
+    "body sidebar"
+    "related sidebar";
+}
+
 .detail-layout.full-width {
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
@@ -762,6 +769,10 @@ img {
   gap: 18px;
   grid-area: body;
   max-width: 64ch;
+}
+
+body[data-entry-type="insight"] .detail-body {
+  max-width: none;
 }
 
 .detail-body h3 {
@@ -796,7 +807,7 @@ img {
   border-bottom: 1px solid var(--border);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: start;
-  max-width: 64ch;
+  max-width: none;
 }
 
 .key-fact-rows {
@@ -833,6 +844,17 @@ img {
   gap: 12px;
   margin-top: 34px;
   grid-area: related;
+}
+
+.detail-sidebar {
+  display: none;
+  grid-area: sidebar;
+  gap: 16px;
+  position: relative;
+}
+
+.detail-sidebar.has-content {
+  display: grid;
 }
 
 .related-card {
@@ -980,6 +1002,14 @@ img {
     grid-template-columns: 1fr;
     grid-template-areas:
       "body"
+      "related";
+  }
+
+  .detail-layout.has-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "body"
+      "sidebar"
       "related";
   }
 
