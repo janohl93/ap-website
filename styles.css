@@ -799,26 +799,27 @@ body[data-entry-type="insight"] .detail-body {
 }
 
 .key-facts {
-  display: grid;
-  gap: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   grid-area: auto;
-  padding: 6px 0 4px;
+  padding: 10px 0 8px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  align-items: start;
   max-width: none;
 }
 
 .key-fact-rows {
-  display: grid;
-  gap: 12px 20px;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .fact-row {
-  display: grid;
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
 .fact-label {

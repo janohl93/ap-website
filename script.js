@@ -283,7 +283,7 @@ const renderProjectList = async () => {
 };
 
 const renderKeyFacts = (entry) => {
-  if (!entry.location && !entry.year) return null;
+  if (!entry.location && !entry.year && !(entry.tags && entry.tags.length)) return null;
 
   const facts = document.createElement('div');
   facts.className = 'key-facts';
@@ -292,15 +292,22 @@ const renderKeyFacts = (entry) => {
 
   if (entry.location) {
     const row = createEl('div', 'fact-row');
-    row.append(createEl('span', 'fact-value', entry.location));
     row.append(createEl('span', 'fact-label', 'Country'));
+    row.append(createEl('span', 'fact-value', entry.location));
     rows.appendChild(row);
   }
 
   if (entry.year) {
     const row = createEl('div', 'fact-row');
-    row.append(createEl('span', 'fact-value', entry.year));
     row.append(createEl('span', 'fact-label', 'Year'));
+    row.append(createEl('span', 'fact-value', entry.year));
+    rows.appendChild(row);
+  }
+
+  if (entry.tags && entry.tags.length) {
+    const row = createEl('div', 'fact-row');
+    row.append(createEl('span', 'fact-label', 'Topics'));
+    row.append(createEl('span', 'fact-value', entry.tags.join(', ')));
     rows.appendChild(row);
   }
 
@@ -434,9 +441,6 @@ const renderDetailPage = async () => {
       sidebar.appendChild(facts);
       sidebar.classList.add('has-content');
       layout.classList.add('has-sidebar');
-    }
-    if (entry.tags && entry.tags.length) {
-      bodyContainer.appendChild(createTagList(entry.tags));
     }
   }
 
