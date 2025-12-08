@@ -146,14 +146,10 @@ const dataSources = {
   projects: 'data/projects.json'
 };
 
-const scriptBase = (() => {
-  if (document.currentScript && document.currentScript.src) {
-    const url = new URL(document.currentScript.src, window.location.href);
-    url.pathname = url.pathname.replace(/[^/]+$/, '');
-    return url;
-  }
-
-  return new URL('./', window.location.href);
+const dataBase = (() => {
+  const baseUrl = new URL(window.location.href);
+  baseUrl.pathname = baseUrl.pathname.replace(/[^/]*$/, '');
+  return baseUrl;
 })();
 
 const dataCache = {};
@@ -162,7 +158,7 @@ const fetchData = (type) => {
   if (!dataSources[type]) return Promise.resolve({ items: [], ok: false });
   if (dataCache[type]) return Promise.resolve({ items: dataCache[type], ok: true });
 
-  const url = new URL(dataSources[type], scriptBase).toString();
+  const url = new URL(dataSources[type], dataBase).toString();
 
   return fetch(url)
     .then((response) => {
