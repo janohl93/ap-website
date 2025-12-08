@@ -600,7 +600,7 @@ img {
   border: 1px solid var(--border);
   padding: 24px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .entry-header h2 {
@@ -608,6 +608,11 @@ img {
   font-size: 1.5rem;
   letter-spacing: -0.01em;
   line-height: 1.22;
+}
+
+.entry-header {
+  display: grid;
+  gap: 4px;
 }
 
 .entry-summary {
@@ -623,15 +628,15 @@ img {
   flex-wrap: wrap;
 }
 
-.entry-actions .project-tags {
-  gap: 6px;
-}
-
 .entry-actions .text-link,
 .insight-article .text-link {
   width: 100%;
   justify-content: space-between;
   padding-bottom: 6px;
+}
+
+.project-entry .project-tags {
+  gap: 6px;
 }
 
 .add-more-note {
@@ -756,6 +761,17 @@ img {
   line-height: 1.7;
 }
 
+.reference-intro {
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  color: var(--text-main);
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 0;
+  line-height: 1.7;
+}
+
 .detail-body ul {
   padding-left: 18px;
 }
@@ -765,15 +781,8 @@ img {
   border: 1px solid var(--border);
   padding: 16px 16px 12px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   grid-area: facts;
-}
-
-.key-facts h4 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-main);
 }
 
 .key-facts ul {
@@ -812,14 +821,15 @@ img {
 
 .related-card {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   padding: 14px 16px;
   border: 1px solid var(--border);
   background: #fff;
   box-shadow: var(--shadow-soft);
   text-decoration: none;
   color: inherit;
+  gap: 12px;
 }
 
 .related-card span {
@@ -829,6 +839,17 @@ img {
 
 .related-card strong {
   letter-spacing: -0.01em;
+}
+
+.related-card-content {
+  display: grid;
+  gap: 4px;
+}
+
+.related-arrow {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 .related-list a {
