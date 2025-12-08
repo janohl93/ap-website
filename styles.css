@@ -788,16 +788,19 @@ img {
 
 .key-facts {
   display: grid;
-  gap: 12px;
+  gap: 16px 24px;
   grid-area: auto;
   padding: 6px 0 4px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;
 }
 
 .key-fact-rows {
   display: grid;
-  gap: 12px;
+  gap: 12px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
 .fact-row {
