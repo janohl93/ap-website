@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "insight-ancillary-pricing",
+    "title": "How flexibility will be priced in emerging ancillary markets",
+    "date": "Oct 2025",
+    "topic": "Markets",
+    "heroAlt": "Control room view across regional grid",
+    "summary": "Evolving reserve and response products will hinge on verifiable flexibility. We explore how hydro, gas, and storage can stack revenues and what operators need to verify availability while keeping operators confident during low-inertia events.",
+    "lead": "A concise view on reserve and response products, verification needs, and how hydro, gas, and storage can stack revenues without eroding reliability.",
+    "sections": [
+      {
+        "heading": "Why pricing is shifting",
+        "body": [
+          "Ancillary markets are moving from static reserve products to faster, verifiable services. Operators now reward measured response speed and availability, pushing flexibility providers to prove performance rather than rely on nameplate capacity. That mirrors what PJM, ERCOT, and South African pilots have shown: buyers pay for provable flexibility, not promises."
+        ]
+      },
+      {
+        "heading": "Design signals to watch",
+        "body": [
+          "Procurement rules are tightening telemetry standards and assigning ramping obligations that reflect the physics of each system. Hydro, gas, and batteries can all win, but each needs clear testing windows, dispatch prioritisation, and penalty regimes aligned to response quality. Markets are also experimenting with locational adders where congestion or inertia is thin, making grid-forming capabilities financially visible."
+        ]
+      },
+      {
+        "heading": "Practical toolkit",
+        "body": [
+          "Advisory teams should walk operators through simplified response tests, settlement templates that separate availability from delivery, and revenue stacks that blend reserve, energy, and redispatch opportunities without double counting. A one-page playbook showing how telemetry, testing, and settlements fit together keeps bidders confident that obligations will be enforced fairly."
+        ]
+      },
+      {
+        "heading": "Implementation watch-outs",
+        "body": [
+          "Data lineage matters: logging droop curves, frequency events, and metered response in one place keeps disputes low and investor confidence high. Training system operators to interpret the data is as important as drafting the contracts, and it ensures post-event audits reward genuine flexibility rather than creative scheduling."
+        ]
+      }
+    ],
+    "relatedProjects": ["project-interconnector", "project-central-corridor"]
+  },
+  {
+    "slug": "insight-vgf-hybrids",
+    "title": "Designing viability gap funding for storage-hybrid auctions",
+    "date": "Sep 2025",
+    "topic": "Procurement",
+    "heroAlt": "Battery units stacked near solar plant",
+    "summary": "How to balance tariff caps with performance-based support, set availability metrics for storage, and protect system needs while inviting private capital and lenders into new markets.",
+    "lead": "How to balance tariff caps with performance-based support while protecting system needs and investor appetite.",
+    "sections": [
+      {
+        "heading": "Balancing cost and reliability",
+        "body": [
+          "Storage hybrids deliver flexibility but raise capital costs. Viability gap funding works when it rewards reliable dispatch instead of cheap megawatt-hours alone, nudging bidders toward designs that hold frequency and reduce curtailment. It also signals to lenders that system services are intentional revenue streams rather than afterthoughts."
+        ]
+      },
+      {
+        "heading": "Structuring the subsidy",
+        "body": [
+          "Pair tariff caps with milestone-linked grants or contracts-for-differences that fade as performance improves. Define availability metrics for the storage block and translate them into claw-back logic so treasuries can defend the subsidy while investors keep clarity on upside. Longstop dates for grid integration and SCADA readiness keep funds tied to real progress, not just signatures."
+        ]
+      },
+      {
+        "heading": "Market-facing safeguards",
+        "body": [
+          "Grid codes and dispatch protocols should clarify who can call on storage and how quickly it must respond. Aligning dispatch rights between the system operator and off-taker keeps hybrid plants from gaming imbalance charges while still meeting the renewable objectives of the programme. Clear rights also help planners decide when hybrids can support black-start or inertia needs without new contracts."
+        ]
+      },
+      {
+        "heading": "Execution checklist",
+        "body": [
+          "Build test events into the PPA, lock in telemetry formats before bid award, and stress-test developer models for split revenue streams. Simple annexes with state-of-charge reporting templates often avoid disputes later, especially when multiple off-takers share the same hybrid asset."
+        ]
+      }
+    ],
+    "relatedProjects": ["project-hybrid-tender"]
+  },
+  {
+    "slug": "insight-transmission-ppp",
+    "title": "Transmission PPPs: aligning incentives for reliability",
+    "date": "Aug 2025",
+    "topic": "Transmission",
+    "heroAlt": "Transmission lines running across hilly terrain",
+    "summary": "Private capital in grid corridors demands clear accountability. We outline options for availability regimes, wheeling settlements, and investment protection that still let the system operator move power safely.",
+    "lead": "Private capital in grid corridors demands clear accountability, availability regimes, and predictable settlements.",
+    "sections": [
+      {
+        "heading": "Set the right performance anchor",
+        "body": [
+          "PPP structures work when they focus on corridor availability rather than construction milestones alone. Include credible outage reporting and tie payments to how fast the line returns to service. Lenders respond well when the metric mirrors what the system operator already tracks instead of inventing a new indicator for one concession."
+        ]
+      },
+      {
+        "heading": "Keep incentives balanced",
+        "body": [
+          "Wheeling settlements, system charges, and merchant revenues must complement each other. Avoid double rewarding congestion relief while still giving developers upside when they unlock export routes. Test each revenue stream against real dispatch cases so that payments do not collapse when imports dip or gas prices spike."
+        ]
+      },
+      {
+        "heading": "Protect the system operator",
+        "body": [
+          "Dispatchers need clear rights to curtail flows in emergencies without triggering compensation by default. A short protocol for crisis events reduces disputes and keeps lenders comfortable with operational risk. Maintenance windows should be booked early and transparently so that PPP operators cannot claim surprise curtailments."
+        ]
+      },
+      {
+        "heading": "Plan for handover",
+        "body": [
+          "Build a glidepath for local utilities to absorb O&M or renegotiate service levels as markets mature. Training and inventory planning in the last contract years often determine whether the project remains bankable, especially where spare parts logistics depend on neighbouring markets."
+        ]
+      }
+    ],
+    "relatedProjects": ["project-central-corridor"]
+  },
+  {
+    "slug": "insight-data-lineage",
+    "title": "Data lineage as a competitive edge in market modelling",
+    "date": "Jul 2025",
+    "topic": "Data",
+    "heroAlt": "Team reviewing power market models",
+    "summary": "Documentation, testing, and reproducibility are critical for credibility. A simple checklist for advisory teams working across multiple regulators with contested datasets.",
+    "lead": "Documentation, testing, and reproducibility that withstand regulator review and investor due diligence.",
+    "sections": [
+      {
+        "heading": "Build a single source of truth",
+        "body": [
+          "Every scenario, dataset, and tweak needs a changelog. Simple markdown notes and versioned data folders make it easy to explain why a conclusion holds even when assumptions move. When multiple regulators review the same study, they can see which assumptions are harmonised and which are bespoke."
+        ]
+      },
+      {
+        "heading": "Test what matters",
+        "body": [
+          "Automatic checks on load data, renewable traces, and dispatch outputs catch the errors that derail credibility. The tests do not need to be complex; they simply need to run every time a workbook or script changes. Think of them as pre-flight checks for analytics, catching silent unit errors before they show up in board slides."
+        ]
+      },
+      {
+        "heading": "Leave an audit trail",
+        "body": [
+          "Annotate charts and model outputs with sources and timestamps so regulators and lenders can retrace each decision. When cross-border flows or tariffs are at stake, that trail removes hours of negotiation friction and builds a reusable library of defensible visuals."
+        ]
+      },
+      {
+        "heading": "Share the playbook",
+        "body": [
+          "Publish a short README with file locations, contact points, and rerun instructions. Teams that onboard quickly win more work because clients see less risk in handing over sensitive data, and new analysts spend hours instead of days finding the right scripts."
+        ]
+      }
+    ],
+    "relatedProjects": ["project-grid-loss"]
+  }
+]
