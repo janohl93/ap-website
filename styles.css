@@ -725,10 +725,13 @@ img {
   margin: 2px 0 0;
 }
 
+
 .detail-lead {
   margin: 0;
-  color: var(--text-muted);
+  color: #4a5c6d;
   max-width: 70ch;
+  font-size: 1.12rem;
+  line-height: 1.7;
 }
 
 .project-lead {
@@ -772,14 +775,10 @@ img {
 }
 
 .reference-intro {
-  background: var(--bg-muted);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  color: var(--text-main);
-  padding: 12px 14px;
-  border-radius: 10px;
   margin: 0;
-  line-height: 1.7;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
 }
 
 .detail-body ul {
