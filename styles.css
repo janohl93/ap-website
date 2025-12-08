@@ -761,6 +761,7 @@ img {
   display: grid;
   gap: 18px;
   grid-area: body;
+  max-width: 64ch;
 }
 
 .detail-body h3 {
@@ -795,6 +796,7 @@ img {
   border-bottom: 1px solid var(--border);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: start;
+  max-width: 64ch;
 }
 
 .key-fact-rows {
