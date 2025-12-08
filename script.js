@@ -13,32 +13,40 @@ const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
-
+// ...existing code...
 // Placeholder images
 const placeholderDefaults = {
   size: '1200x800',
   bg: 'e5e7eb',
   fg: '1f3a5f',
-  text: 'APA Image Placeholder',
-  // new: local fallback inside your repo
-  local: 'assets/images/placeholder.jpg'
+  text: 'APA Image Placeholder'
 };
 
 document.querySelectorAll('img[data-placeholder]').forEach((img) => {
   const size = img.dataset.placeholder || placeholderDefaults.size;
-  const { bg, fg, text, local } = placeholderDefaults;
+  const { bg, fg, text } = placeholderDefaults;
   const remoteUrl = `https://placehold.co/${size}/${bg}/${fg}?text=${encodeURIComponent(text)}`;
 
-  if (local) {
-    // try local image first; if it 404s, fall back to remote placeholder
-    img.src = local;
-    img.addEventListener('error', function onErr() {
-      img.removeEventListener('error', onErr);
-      img.src = remoteUrl;
-    });
-  } else {
-    img.src = remoteUrl;
+  // try size-specific local, then generic local, then remote
+  const sizedLocal = `assets/images/placeholder-${size}.jpg`; // e.g. placeholder-1200x800.jpg
+  const genericLocal = `assets/images/placeholder.jpg`;
+  const sources = [sizedLocal, genericLocal, remoteUrl];
+
+  let idx = 0;
+  function tryNextSource() {
+    img.src = sources[idx++];
   }
+
+  function onError() {
+    if (idx < sources.length) {
+      tryNextSource();
+    } else {
+      img.removeEventListener('error', onError);
+    }
+  }
+
+  img.addEventListener('error', onError);
+  tryNextSource();
 
   if (!img.hasAttribute('loading')) {
     img.loading = 'lazy';
@@ -46,3 +54,4 @@ document.querySelectorAll('img[data-placeholder]').forEach((img) => {
 
   img.classList.add('placeholder-img');
 });
+// ...existing code...
