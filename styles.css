@@ -541,6 +541,13 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(13, 23, 41, 0.08);
+  border-color: #c5ccd8;
 }
 
 .insight-card h3 {
@@ -754,22 +761,19 @@ img {
 }
 
 .key-facts {
-  background: linear-gradient(135deg, #f7f9fb, #ffffff);
+  background: var(--bg-muted);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px 18px 14px;
+  padding: 16px 16px 12px;
   display: grid;
-  gap: 10px;
-  box-shadow: var(--shadow-soft);
+  gap: 12px;
   grid-area: facts;
 }
 
 .key-facts h4 {
   margin: 0;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
 .key-facts ul {
@@ -777,30 +781,25 @@ img {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 8px;
   color: var(--text-muted);
 }
 
 .key-facts li {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 12px;
-  background: #fff;
   display: grid;
-  gap: 4px;
+  gap: 2px;
 }
 
 .fact-label {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 600;
 }
 
 .fact-value {
   font-size: 0.98rem;
-  color: var(--text);
-  font-weight: 500;
+  color: var(--text-muted);
+  font-weight: 400;
   line-height: 1.6;
 }
 
