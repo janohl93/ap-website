@@ -247,7 +247,7 @@ const renderProjectList = async () => {
       </div>
     `;
 
-    if (entry.tags?.length) {
+    if (entry.tags && entry.tags.length) {
       const tags = createTagList(entry.tags);
       article.insertBefore(tags, article.querySelector('.entry-summary'));
     }
@@ -285,7 +285,7 @@ const renderKeyFacts = (entry) => {
 
 const renderSections = (target, sections = []) => {
   sections.forEach((section) => {
-    if (!section.heading && !section.body?.length) return;
+    if (!section.heading && !(section.body && section.body.length)) return;
     if (section.heading) {
       const heading = document.createElement('h3');
       heading.textContent = section.heading;
@@ -382,7 +382,7 @@ const renderDetailPage = async () => {
   if (detailType === 'project') {
     const facts = renderKeyFacts(entry);
     if (facts) bodyContainer.appendChild(facts);
-    if (entry.tags?.length) {
+    if (entry.tags && entry.tags.length) {
       bodyContainer.appendChild(createTagList(entry.tags));
     }
   }
