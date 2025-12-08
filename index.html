@@ -8,14 +8,22 @@
     name="description"
     content="Africa Power Advisory – data-driven, engineering-grounded advisory for African power markets."
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Header / Navigation -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-mark">APA</span>
+      <a href="#top" class="brand" aria-label="Africa Power Advisory home">
+        <span class="brand-mark">
+          <img src="assets/logo/logo.svg" alt="Africa Power Advisory logo" />
+        </span>
         <span class="brand-text">Africa Power Advisory</span>
       </a>
 
@@ -27,7 +35,6 @@
         <a href="#services">Services</a>
         <a href="#platform">Data Platform</a>
         <a href="#projects">Projects</a>
-        <a href="#regions">Coverage</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -163,19 +170,24 @@
           <h2>Selected projects</h2>
         </header>
 
-        <div class="grid grid-2 project-grid">
+        <div class="project-grid">
           <article class="project-card">
             <div class="project-image">
               <img data-placeholder="1200x760" alt="Transmission infrastructure" />
             </div>
             <div class="project-body">
-              <h3>Central corridor grid reinforcement</h3>
               <p class="project-meta">Zambia &middot; 1.2 GW transfer capacity unlocked</p>
+              <h3>Central corridor grid reinforcement</h3>
               <p>
                 Developed a private-participation roadmap and detailed dispatch analysis to de-risk a
                 staged reinforcement of a key transmission corridor, aligning incentives for the
                 utility, investors and regulator.
               </p>
+              <ul class="project-tags">
+                <li>Transmission</li>
+                <li>Private participation</li>
+                <li>Dispatch modelling</li>
+              </ul>
             </div>
           </article>
 
@@ -184,13 +196,18 @@
               <img data-placeholder="1200x760" alt="Solar and storage installation" />
             </div>
             <div class="project-body">
-              <h3>Northern solar + storage auction design</h3>
               <p class="project-meta">Ghana &middot; 40 MW PV + 8 MW BESS pilot</p>
+              <h3>Northern solar + storage auction design</h3>
               <p>
                 Designed an auction mechanism combining tariff caps and viability gap funding,
                 supported by a robust revenue and system-impact model for solar-plus-storage
                 projects.
               </p>
+              <ul class="project-tags">
+                <li>Auction design</li>
+                <li>Storage</li>
+                <li>Revenue modelling</li>
+              </ul>
             </div>
           </article>
 
@@ -199,12 +216,17 @@
               <img data-placeholder="1200x760" alt="Hydropower dam" />
             </div>
             <div class="project-body">
-              <h3>Hydropower portfolio flexibility study</h3>
               <p class="project-meta">Kenya &middot; +220 GWh flexible energy / year</p>
+              <h3>Hydropower portfolio flexibility study</h3>
               <p>
                 Assessed ramping envelopes, minimum flows and reservoir constraints across a hydro
                 fleet to quantify flexibility value and support ancillary-services market design.
               </p>
+              <ul class="project-tags">
+                <li>Hydro</li>
+                <li>Flexibility</li>
+                <li>Ancillary services</li>
+              </ul>
             </div>
           </article>
 
@@ -213,12 +235,17 @@
               <img data-placeholder="1200x760" alt="Mini-grid solar installation" />
             </div>
             <div class="project-body">
-              <h3>Mini-grid socio-economic tariff framework</h3>
               <p class="project-meta">Mozambique &middot; Tier-4 reliability for 25 communities</p>
+              <h3>Mini-grid socio-economic tariff framework</h3>
               <p>
                 Developed a ceiling-tariff methodology balancing affordability and financial
                 viability, complemented by targeted results-based funding for rural mini-grids.
               </p>
+              <ul class="project-tags">
+                <li>Mini-grids</li>
+                <li>Tariff design</li>
+                <li>Funding</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -231,39 +258,6 @@
             <li>Development finance institutions</li>
             <li>Transmission companies</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Regions -->
-    <section id="regions" class="section section-muted">
-      <div class="container">
-        <header class="section-header">
-          <p class="eyebrow">Regional focus</p>
-          <h2>Coverage</h2>
-        </header>
-
-        <div class="image-banner small">
-          <img data-placeholder="1400x780" alt="Map of Africa on desk" />
-        </div>
-
-        <div class="grid grid-4">
-          <article class="card">
-            <h3>SAPP</h3>
-            <p>Southern Africa Power Pool market design, capacity adequacy and interconnector use.</p>
-          </article>
-          <article class="card">
-            <h3>WAPP</h3>
-            <p>West African Power Pool integration, reserve products and regional trade scenarios.</p>
-          </article>
-          <article class="card">
-            <h3>EAPP</h3>
-            <p>Eastern Africa Power Pool planning, hydro-thermal coordination and new corridors.</p>
-          </article>
-          <article class="card">
-            <h3>Islands</h3>
-            <p>Islanded systems and small grids with high shares of variable renewables.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -306,30 +300,39 @@
           <h2>Insights</h2>
         </header>
 
-        <div class="grid grid-3">
-          <article class="card card-plain">
-            <p class="card-meta">Oct 2025</p>
-            <h3>How flexibility will be priced in emerging ancillary markets</h3>
-            <p>
-              A concise view on how evolving reserve and response products in African systems may
-              value flexibility from hydro, gas and storage.
-            </p>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <div>
+              <p class="card-meta">Oct 2025</p>
+              <h3>How flexibility will be priced in emerging ancillary markets</h3>
+              <p>
+                A concise view on how evolving reserve and response products in African systems may
+                value flexibility from hydro, gas and storage.
+              </p>
+            </div>
+            <a class="card-link" href="#">Read</a>
           </article>
-          <article class="card card-plain">
-            <p class="card-meta">Sep 2025</p>
-            <h3>Designing viability gap funding for storage-hybrid auctions</h3>
-            <p>
-              Lessons from pilot solar-plus-storage programmes and how to balance tariff caps with
-              performance-based support.
-            </p>
+          <article class="insight-card">
+            <div>
+              <p class="card-meta">Sep 2025</p>
+              <h3>Designing viability gap funding for storage-hybrid auctions</h3>
+              <p>
+                Lessons from pilot solar-plus-storage programmes and how to balance tariff caps with
+                performance-based support.
+              </p>
+            </div>
+            <a class="card-link" href="#">Read</a>
           </article>
-          <article class="card card-plain">
-            <p class="card-meta">Aug 2025</p>
-            <h3>Transmission PPPs: aligning incentives for reliability</h3>
-            <p>
-              Structuring options to bring private capital into grid corridors while protecting
-              system security and affordability.
-            </p>
+          <article class="insight-card">
+            <div>
+              <p class="card-meta">Aug 2025</p>
+              <h3>Transmission PPPs: aligning incentives for reliability</h3>
+              <p>
+                Structuring options to bring private capital into grid corridors while protecting
+                system security and affordability.
+              </p>
+            </div>
+            <a class="card-link" href="#">Read</a>
           </article>
         </div>
       </div>
