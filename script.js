@@ -376,6 +376,20 @@ const renderDetailPage = async () => {
   const entry = entries.find((item) => item.slug === slug);
 
   const bodyContainer = document.getElementById('detail-body');
+  const layout = document.querySelector('.detail-layout');
+  let sidebar = document.getElementById('detail-sidebar');
+  if (!sidebar && layout) {
+    sidebar = document.createElement('aside');
+    sidebar.id = 'detail-sidebar';
+    sidebar.className = 'detail-sidebar';
+    const related = layout.querySelector('.related-cards');
+    if (related) {
+      layout.insertBefore(sidebar, related);
+    } else {
+      layout.appendChild(sidebar);
+    }
+  }
+
   if (!bodyContainer || !ok || !entry) {
     if (bodyContainer) {
       bodyContainer.innerHTML = '<p class="loading-copy">Unable to load this page right now.</p>';
@@ -395,6 +409,11 @@ const renderDetailPage = async () => {
   const typeEl = document.getElementById('detail-type');
   const heroImg = document.getElementById('detail-hero');
 
+  if (layout) layout.classList.remove('has-sidebar');
+  if (sidebar) {
+    sidebar.innerHTML = '';
+    sidebar.classList.remove('has-content');
+  }
   if (titleEl) titleEl.textContent = entry.title;
   if (metaEl) metaEl.textContent = buildMetaText(entry, detailType);
   if (leadEl) leadEl.textContent = entry.lead || entry.summary || '';
@@ -405,7 +424,11 @@ const renderDetailPage = async () => {
 
   if (detailType === 'project') {
     const facts = renderKeyFacts(entry);
-    if (facts) bodyContainer.appendChild(facts);
+    if (facts && sidebar && layout) {
+      sidebar.appendChild(facts);
+      sidebar.classList.add('has-content');
+      layout.classList.add('has-sidebar');
+    }
     if (entry.tags && entry.tags.length) {
       bodyContainer.appendChild(createTagList(entry.tags));
     }
