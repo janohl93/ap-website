@@ -45,20 +45,56 @@ const setCurrentYear = (scope = document) => {
 
 // Shared footer loader
 const footerPlaceholder = document.getElementById('footer-placeholder');
+const inlineFooterMarkup = `
+  <footer class="site-footer" data-animate>
+    <div class="container footer-inner">
+      <div class="footer-columns">
+        <div class="footer-summary">
+          <p class="footer-small">Africa Power Advisory is a specialist practice within Multiconsult Norge AS focused on market, policy, regulatory and project advisory in African power sectors.</p>
+          <p class="footer-disclaimer">Information provided is for general guidance and does not constitute investment advice or a solicitation.</p>
+          <p class="footer-small footer-year">© <span id="year"></span> Africa Power Advisory</p>
+        </div>
+        <div class="footer-contact">
+          <p class="footer-small"><strong>Multiconsult Norge AS</strong><br />Drammensveien 260, 0283 Oslo, Norway</p>
+          <p class="footer-small">Oslo · Dar Es Salaam · Lusaka · Maputo</p>
+          <div class="footer-links">
+            <a href="mailto:contact@africapoweradvisory.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v11H3z"/><path d="M3 7l9 6 9-6"/></svg>
+              contact@africapoweradvisory.com
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9h3v9H6z"/><circle cx="7.5" cy="6.5" r="1.5"/><path d="M11 9h3v1.8a3 3 0 0 1 5 2.4V18h-3v-4.2a1.3 1.3 0 0 0-2.6 0V18H11z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+`;
+
+const renderFooter = (html, scope = footerPlaceholder) => {
+  if (!scope) return;
+  scope.innerHTML = html;
+  observeAnimatedElements(scope);
+  setCurrentYear(scope);
+};
+
 if (footerPlaceholder) {
-  fetch('partials/footer.html')
+  const footerUrl = new URL('partials/footer.html', window.location.href).toString();
+
+  fetch(footerUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Footer request failed with status ${response.status}`);
       }
       return response.text();
     })
-    .then((html) => {
-      footerPlaceholder.innerHTML = html;
-      observeAnimatedElements(footerPlaceholder);
-      setCurrentYear(footerPlaceholder);
-    })
-    .catch((error) => console.error('Failed to load footer', error));
+    .then((html) => renderFooter(html))
+    .catch((error) => {
+      console.error('Failed to load footer, using inline fallback', error);
+      renderFooter(inlineFooterMarkup);
+    });
 } else {
   setCurrentYear();
 }
