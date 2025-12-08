@@ -6,6 +6,28 @@ if (toggle && nav) {
   toggle.addEventListener('click', () => {
     nav.classList.toggle('open');
   });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+}
+
+// Reveal on scroll
+const animated = document.querySelectorAll('[data-animate]');
+if (animated.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animated.forEach((el) => observer.observe(el));
 }
 
 // Year in footer
@@ -13,7 +35,7 @@ const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
-// ...existing code...
+
 // Placeholder images
 const placeholderDefaults = {
   size: '1200x800',
@@ -54,4 +76,3 @@ document.querySelectorAll('img[data-placeholder]').forEach((img) => {
 
   img.classList.add('placeholder-img');
 });
-// ...existing code...

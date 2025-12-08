@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Insights | Africa Power Advisory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Insights and articles from Africa Power Advisory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="assets/favicon-modern.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" data-animate>
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Africa Power Advisory home">
+        <span class="brand-mark">
+          <img src="assets/logo/logo.svg" alt="Africa Power Advisory logo" />
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html#services">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="insights.html" aria-current="page">Insights</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" data-animate>
+      <div class="container">
+        <p class="eyebrow">Insights & articles</p>
+        <div class="section-heading-row">
+          <h1>Concise signals on policy, procurement, and system design</h1>
+          <a class="text-link" href="index.html#contact">Request a briefing</a>
+        </div>
+        <p class="hero-lead narrow">
+          Articles are short and practical. Each card lists publication date, summary, and a call to action. Add new articles by duplicating an <code>insight-article</code> block.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" data-animate>
+      <div class="container">
+        <div class="insight-feed">
+          <article id="ancillary-pricing" class="insight-article">
+            <header>
+              <p class="card-meta">Oct 2025 · Markets</p>
+              <h2>How flexibility will be priced in emerging ancillary markets</h2>
+            </header>
+            <p>
+              Evolving reserve and response products will hinge on verifiable flexibility. We explore how hydro, gas,
+              and storage can stack revenues and what operators need to verify availability.
+            </p>
+            <a class="text-link" href="#ancillary-pricing">Share or download</a>
+          </article>
+
+          <article id="vgf-hybrids" class="insight-article">
+            <header>
+              <p class="card-meta">Sep 2025 · Procurement</p>
+              <h2>Designing viability gap funding for storage-hybrid auctions</h2>
+            </header>
+            <p>
+              How to balance tariff caps with performance-based support, set availability metrics for storage, and protect system needs while inviting private capital.
+            </p>
+            <a class="text-link" href="#vgf-hybrids">Share or download</a>
+          </article>
+
+          <article id="transmission-ppp" class="insight-article">
+            <header>
+              <p class="card-meta">Aug 2025 · Transmission</p>
+              <h2>Transmission PPPs: aligning incentives for reliability</h2>
+            </header>
+            <p>
+              Private capital in grid corridors demands clear accountability. We outline options for availability regimes, wheeling settlements, and investment protection.
+            </p>
+            <a class="text-link" href="#transmission-ppp">Share or download</a>
+          </article>
+
+          <article id="data-lineage" class="insight-article">
+            <header>
+              <p class="card-meta">Jul 2025 · Data</p>
+              <h2>Data lineage as a competitive edge in market modelling</h2>
+            </header>
+            <p>
+              Documentation, testing, and reproducibility are critical for credibility. A simple checklist for advisory teams working across multiple regulators.
+            </p>
+            <a class="text-link" href="#data-lineage">Share or download</a>
+          </article>
+
+          <div class="add-more-note">
+            Duplicate an <code>insight-article</code> block to add new content. Keep the <code>card-meta</code>, heading, paragraph, and link to stay consistent.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-animate>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Africa Power Advisory. All rights reserved.</p>
+      <p class="footer-small">Update imagery with your own photography when ready.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
