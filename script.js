@@ -12,6 +12,13 @@ if (toggle && nav) {
   });
 }
 
+const createEl = (tag, className, textContent) => {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (typeof textContent === 'string') el.textContent = textContent;
+  return el;
+};
+
 // Reveal on scroll
 const animatedSelector = '[data-animate]';
 const animatedObserver = 'IntersectionObserver' in window
@@ -184,11 +191,9 @@ const buildMetaText = (entry, type) => {
 };
 
 const createTagList = (tags = []) => {
-  const list = document.createElement('ul');
-  list.className = 'project-tags';
+  const list = createEl('ul', 'project-tags');
   tags.forEach((tag) => {
-    const item = document.createElement('li');
-    item.textContent = tag;
+    const item = createEl('li', null, tag);
     list.appendChild(item);
   });
   return list;
@@ -212,18 +217,19 @@ const renderInsightList = async () => {
 
   container.innerHTML = '';
   insights.forEach((entry) => {
-    const article = document.createElement('article');
-    article.className = 'insight-article';
+    const article = createEl('article', 'insight-article');
     article.id = entry.slug;
 
-    article.innerHTML = `
-      <header>
-        <p class="card-meta">${buildMetaText(entry, 'insight')}</p>
-        <h2>${entry.title}</h2>
-      </header>
-      <p>${entry.summary}</p>
-      <a class="text-link" href="${entry.slug}.html">Read full article</a>
-    `;
+    const header = createEl('header');
+    header.append(createEl('p', 'card-meta', buildMetaText(entry, 'insight')));
+    header.append(createEl('h2', null, entry.title));
+
+    article.append(header);
+    article.append(createEl('p', null, entry.summary));
+
+    const link = createEl('a', 'text-link', 'Read full article');
+    link.href = `${entry.slug}.html`;
+    article.append(link);
 
     container.appendChild(article);
   });
@@ -249,27 +255,27 @@ const renderProjectList = async () => {
 
   container.innerHTML = '';
   projects.forEach((entry) => {
-    const article = document.createElement('article');
-    article.className = 'project-entry';
+    const article = createEl('article', 'project-entry');
     article.id = entry.slug;
 
-    const meta = buildMetaText(entry, 'project');
+    const header = createEl('div', 'entry-header');
+    header.append(createEl('p', 'project-meta', buildMetaText(entry, 'project')));
+    header.append(createEl('h2', null, entry.title));
+    article.append(header);
 
-    article.innerHTML = `
-      <div class="entry-header">
-        <p class="project-meta">${meta}</p>
-        <h2>${entry.title}</h2>
-      </div>
-      <p class="entry-summary">${entry.summary}</p>
-      <div class="entry-actions">
-        <a class="text-link" href="${entry.slug}.html">View full reference</a>
-      </div>
-    `;
-
+    const summary = createEl('p', 'entry-summary', entry.summary);
     if (entry.tags && entry.tags.length) {
       const tags = createTagList(entry.tags);
-      article.insertBefore(tags, article.querySelector('.entry-summary'));
+      article.append(tags);
     }
+    article.append(summary);
+
+    const actions = createEl('div', 'entry-actions');
+    const link = createEl('a', 'text-link', 'View full reference');
+    link.href = `${entry.slug}.html`;
+    actions.append(link);
+    article.append(actions);
+
     container.appendChild(article);
   });
 
@@ -285,16 +291,16 @@ const renderKeyFacts = (entry) => {
   rows.className = 'key-fact-rows';
 
   if (entry.location) {
-    const row = document.createElement('div');
-    row.className = 'fact-row';
-    row.innerHTML = `<span class="fact-value">${entry.location}</span><span class="fact-label">Country</span>`;
+    const row = createEl('div', 'fact-row');
+    row.append(createEl('span', 'fact-value', entry.location));
+    row.append(createEl('span', 'fact-label', 'Country'));
     rows.appendChild(row);
   }
 
   if (entry.year) {
-    const row = document.createElement('div');
-    row.className = 'fact-row';
-    row.innerHTML = `<span class="fact-value">${entry.year}</span><span class="fact-label">Year</span>`;
+    const row = createEl('div', 'fact-row');
+    row.append(createEl('span', 'fact-value', entry.year));
+    row.append(createEl('span', 'fact-label', 'Year'));
     rows.appendChild(row);
   }
 
