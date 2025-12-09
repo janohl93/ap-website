@@ -21,6 +21,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -72,6 +73,7 @@ img {
 .section {
   padding: 100px 0;
   background-color: var(--bg-white);
+  scroll-margin-top: 96px;
 }
 
 .section-muted {
@@ -79,14 +81,19 @@ img {
 }
 
 .section-header {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .section-header h2 {
   font-size: 2.1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin: 4px 0 0;
+  margin: 10px 0 6px;
+}
+
+.section-header .eyebrow {
+  display: inline-block;
+  margin-bottom: 6px;
 }
 
 .section-heading-row {
@@ -1043,8 +1050,10 @@ body[data-entry-type="insight"] .detail-body {
     background: #fff;
     border-bottom: 1px solid var(--border);
     flex-direction: column;
-    padding: 12px 20px 16px;
+    gap: 10px;
+    padding: 16px 24px 18px;
     display: none;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
   }
 
   .site-nav.open {
