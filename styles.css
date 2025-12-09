@@ -385,11 +385,21 @@ img {
   border-color: #c5ccd8;
 }
 
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;    /* change to 4/3, 1/1, etc. as needed */
+  overflow: hidden;
+  display: block;
+}
+
 .project-image img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  min-height: 220px;
+  object-fit: cover;       /* crop to fill the container without distortion */
+  object-position: center; /* adjust to focus crop (e.g. top, center, 40% 30%) */
+  border: 0;
 }
 
 .project-body {
