@@ -114,6 +114,44 @@ const placeholderDefaults = {
   text: 'APA Image Placeholder'
 };
 
+const smoothLoadImage = (img) => {
+  if (img.dataset.placeholder) {
+    const [width, height] = (img.dataset.placeholder || '').split('x').map(Number);
+    if (width && height && !img.style.aspectRatio) {
+      img.style.aspectRatio = `${width} / ${height}`;
+    }
+  }
+
+  img.classList.add('image-loading');
+
+  const revealImage = () => {
+    const finalize = () => {
+      img.classList.remove('image-loading');
+      img.classList.add('image-loaded');
+    };
+
+    if (typeof img.decode === 'function') {
+      img
+        .decode()
+        .then(finalize)
+        .catch(finalize);
+    } else {
+      finalize();
+    }
+  };
+
+  if (img.complete && img.naturalWidth > 0) {
+    revealImage();
+  } else {
+    img.addEventListener('load', revealImage, { once: true });
+    img.addEventListener(
+      'error',
+      () => img.classList.remove('image-loading'),
+      { once: true }
+    );
+  }
+};
+
 document.querySelectorAll('img[data-placeholder]').forEach((img) => {
   const size = img.dataset.placeholder || placeholderDefaults.size;
   const { bg, fg, text } = placeholderDefaults;
@@ -145,7 +183,12 @@ document.querySelectorAll('img[data-placeholder]').forEach((img) => {
   }
 
   img.classList.add('placeholder-img');
+  smoothLoadImage(img);
 });
+
+document
+  .querySelectorAll('img:not([data-placeholder])')
+  .forEach((img) => smoothLoadImage(img));
 
 // Content data rendering
 const dataSources = {
