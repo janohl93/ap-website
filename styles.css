@@ -1096,3 +1096,8 @@ body[data-entry-type="insight"] .detail-body {
     grid-template-columns: 1fr;
   }
 }
+
+.detail-chart {
+  margin: 3rem 0 0;
+  min-height: 471px;
+}
